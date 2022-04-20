@@ -19,8 +19,14 @@ public class FlappyBird  implements Jogo{
     }
     
     public void desenhar(Tela tela) {
+    	//Background
     	tela.imagem("flappy.png", 0,0,288,512,0,0,0);
     	tela.imagem("flappy.png", 0,0,288,512,0,288,0);
+    	tela.imagem("flappy.png", 0,0,288,512,0,288*2,0);
+    	
+    	//Ground
+    	tela.imagem("flappy.png", 292, 0, 308, 112, 0, 0 , getAltura()-112);
+    	tela.imagem("flappy.png", 292, 0, 308, 112, 0, 308 , getAltura()-112);
     }
     
     public static void main (String[]args) {
