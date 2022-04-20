@@ -1,3 +1,6 @@
+import java.util.Set;
+import java.util.ArrayList;
+import java.util.Random;
 
 public class FlappyBird  implements Jogo{
 	
