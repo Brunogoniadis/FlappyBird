@@ -7,7 +7,7 @@ public class FlappyBird  implements Jogo{
 	public Passaro passaro ;
 	
 	public FlappyBird() {
-		passaro = new Passaro(50,50);
+		passaro = new Passaro(35,180);
 	}
 	
 	public String getTitulo() {
@@ -19,14 +19,19 @@ public class FlappyBird  implements Jogo{
     public int getAltura() {
     	return 512;
     }
+    
+    public void tecla(String tecla) {
+    	if(tecla.equals(" ")) {
+    		passaro.flap();
+    	}
+    }
+    
+    
     public void tique(java.util.Set<String> teclas, double dt) {
     	ground_offset +=dt*gvx; 
     	ground_offset = ground_offset%308;
     	
-    }
-    
-    
-    public void tecla(String tecla) {
+    	passaro.atualiza(dt);
     	
     }
     

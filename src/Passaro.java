@@ -1,8 +1,9 @@
 
 public class Passaro {
 	public double x, y;
-	public double vy;
-	public static double G = 500;
+	public double vy =0;
+	
+	public static double G = 1000;
 	public static double FLAP = -300;
 	
 	
@@ -12,7 +13,17 @@ public class Passaro {
 		this.y = y;
 	}
 	
+	public void atualiza(double dt) {
+		vy += G*dt;
+		y += vy*dt;
+	}
+	
+	public void flap() {
+		vy = FLAP;
+	}
+	
+	
 	public void desenhar (Tela t) {
-    	t.imagem("flappy.png", 528, 128, 34, 24, 0,x,y);
+    	t.imagem("flappy.png", 528, 128, 34, 24, Math.atan(vy/800),x,y);
 	}
 }
