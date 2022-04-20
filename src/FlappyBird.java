@@ -1,7 +1,7 @@
 
 public class FlappyBird  implements Jogo{
 	public String getTitulo() {
-		return "Flapy Bird Generico";
+		return "Flapy Bird Genérico";
 	}
 	public int getLargura() {
 		return 384;
@@ -14,13 +14,13 @@ public class FlappyBird  implements Jogo{
     }
     
     
-    
     public void tecla(String tecla) {
     	
     }
     
     public void desenhar(Tela tela) {
-    	
+    	tela.imagem("flappy.png", 0,0,288,512,0,0,0);
+    	tela.imagem("flappy.png", 0,0,288,512,0,288,0);
     }
     
     public static void main (String[]args) {
