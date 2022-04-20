@@ -4,7 +4,7 @@ public class Cano {
 	public double x,y;
 	
 	public double vxcano = FlappyBird.gvx;
-	public static int HOLESIZE = 100;
+	public static int HOLESIZE = 120;
 	
 	
 	public Cano(double x, double y,double vx) {

@@ -12,7 +12,9 @@ public class FlappyBird  implements Jogo{
 	
 	public FlappyBird() {
 		passaro = new Passaro(35,180);
-		canos.add(new Cano(getAltura()-200, gerador.nextInt(getAltura() - 112-Cano.HOLESIZE ) ,-gvx));
+		//canos.add(new Cano(getAltura()-200, gerador.nextInt(getAltura() - 112-Cano.HOLESIZE ) ,-gvx));
+		
+		
 	}
 	
 	public String getTitulo() {
