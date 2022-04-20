@@ -4,6 +4,11 @@ public class FlappyBird  implements Jogo{
 	public double ground_offset = 0;
 	public double gvx = 70;
 	
+	public Passaro passaro ;
+	
+	public FlappyBird() {
+		passaro = new Passaro(50,50);
+	}
 	
 	public String getTitulo() {
 		return "Flapy Bird Genérico";
@@ -25,16 +30,20 @@ public class FlappyBird  implements Jogo{
     	
     }
     
-    public void desenhar(Tela tela) {
+    public void desenhar(Tela t) {
     	//Background
-    	tela.imagem("flappy.png", 0,0,288,512,0,0,0);
-    	tela.imagem("flappy.png", 0,0,288,512,0,288,0);
+    	t.imagem("flappy.png", 0,0,288,512,0,0,0);
+    	t.imagem("flappy.png", 0,0,288,512,0,288,0);
         //tela.imagem("flappy.png", 0,0,288,512,0,288*2,0);
     	
     	//Ground
-    	tela.imagem("flappy.png", 292, 0, 308, 112, 0, -ground_offset , getAltura()-112);
-    	tela.imagem("flappy.png", 292, 0, 308, 112, 0, 308 - ground_offset, getAltura()-112);
-    	tela.imagem("flappy.png", 292, 0, 308, 112, 0, 308 *2 -ground_offset , getAltura()-112);
+    	t.imagem("flappy.png", 292, 0, 308, 112, 0, -ground_offset , getAltura()-112);
+    	t.imagem("flappy.png", 292, 0, 308, 112, 0, 308 - ground_offset, getAltura()-112);
+    	t.imagem("flappy.png", 292, 0, 308, 112, 0, 308 *2 -ground_offset , getAltura()-112);
+    	
+    	
+    	//Passaro
+    	passaro.desenhar(t);
     	
     	
     }
