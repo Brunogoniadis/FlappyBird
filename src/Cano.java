@@ -15,7 +15,7 @@ public class Cano {
 		}	
 	
 	public void atualiza (double dt) {
-		
+		x += vxcano*dt;
 	}
 	
 	public void desenha(Tela t) {

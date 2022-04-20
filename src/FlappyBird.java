@@ -40,6 +40,10 @@ public class FlappyBird  implements Jogo{
     	
     	passaro.atualiza(dt);
     	
+    	for(Cano cano : canos) {
+    		cano.atualiza(dt);
+    	}
+    	
     }
     
     public void desenhar(Tela t) {
