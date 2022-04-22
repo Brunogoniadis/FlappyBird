@@ -15,6 +15,7 @@ public class FlappyBird  implements Jogo{
 	public FlappyBird() {
 		passaro = new Passaro(35,180);
 		timer_cano = new Timer(2, true, addCano());
+		addCano().executa();
 
 	}
 	
@@ -53,9 +54,26 @@ public class FlappyBird  implements Jogo{
     	
     	passaro.atualiza(dt);
     	
+    	if(passaro.y+24>=getAltura()-112) {
+    		System.out.println("GAME OVER");
+    	} else if (passaro.y<=0) {
+    		System.out.println("GAME OVER");
+    	}
+    	
+    	
     	for(Cano cano : canos) {
     		cano.atualiza(dt);
+    		if(passaro.box.intersecao(cano.boxcima)!=0 ||passaro.box.intersecao(cano.boxbaixo)!=0) {
+    			System.out.println("GAME OVER");
+    		}
     	}
+    	if(canos.size()>0 && canos.get(0).x<-60) {
+    		canos.remove(0);
+    		System.out.println("Cano Removido");
+    		System.out.println(canos.size());
+    	}
+    	
+    	
     	
     }
     
@@ -68,7 +86,9 @@ public class FlappyBird  implements Jogo{
     	//Cano
     	for(Cano cano: canos) {
     		cano.desenha(t);
+    		
     	}
+    	
     	
     	//Ground
     	t.imagem("flappy.png", 292, 0, 308, 112, 0, -ground_offset , getAltura()-112);
