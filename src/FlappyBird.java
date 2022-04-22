@@ -9,12 +9,21 @@ public class FlappyBird  implements Jogo{
 	public Passaro passaro ;
 	public ArrayList<Cano> canos = new ArrayList<Cano>();
 	public Random gerador = new Random();
+	public Timer timer_cano;
+	
 	
 	public FlappyBird() {
 		passaro = new Passaro(35,180);
-		//canos.add(new Cano(getAltura()-200, gerador.nextInt(getAltura() - 112-Cano.HOLESIZE ) ,-gvx));
-		
-		
+		timer_cano = new Timer(2, true, addCano());
+
+	}
+	
+	private Acao addCano() {
+		return new Acao() {
+			public void executa() {
+				canos.add(new Cano(getAltura()-200, gerador.nextInt(getAltura() - 112-Cano.HOLESIZE ) ,-gvx));
+			}
+		};
 	}
 	
 	public String getTitulo() {
@@ -22,7 +31,7 @@ public class FlappyBird  implements Jogo{
 	}
 	
 	public int getLargura() {
-		return 384;
+		return 248 ;
 	}
 	
     public int getAltura() {
@@ -39,6 +48,8 @@ public class FlappyBird  implements Jogo{
     public void tique(java.util.Set<String> teclas, double dt) {
     	ground_offset +=dt*gvx; 
     	ground_offset = ground_offset%308;
+    	
+    	timer_cano.tique(dt);
     	
     	passaro.atualiza(dt);
     	
